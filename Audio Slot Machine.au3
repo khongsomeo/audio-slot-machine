@@ -1,7 +1,12 @@
 ;-----------------------------------------------------------------------------------------------
-;> MỘT SẢN PHẨM ĐƯỢC LÀM RA TRONG LÚC RẢNH
-;> ƯU ĐIỂM: DÙNG HẾT TẤT CẢ CÁC CẤU TRÚC LẶP
-;> NHƯỢC: ĐỌC KHÔNG KỸ COMMENT SẼ ĂN LOL
+;
+;   ____ _             __  __               ____ _           _  __  __
+;  / ___| |__  _   _  |  \/  | ___  ___    / ___| |__  _   _(_) \ \/ /___   ___  _ __   __ _
+; | |   | '_ \| | | | | |\/| |/ _ \/ _ \  | |   | '_ \| | | | |  \  // _ \ / _ \| '_ \ / _` |
+; | |___| | | | |_| | | |  | |  __/ (_) | | |___| | | | |_| | |  /  \ (_) | (_) | | | | (_| |
+;  \____|_| |_|\__,_| |_|  |_|\___|\___/   \____|_| |_|\__,_|_| /_/\_\___/ \___/|_| |_|\__, |
+;                                                                                      |___/
+;
 ;
 ;> Author.........: trhgquan (https://github.com/trhgquan)
 ;
@@ -50,18 +55,16 @@ Func ThrowdaDice()
 	GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
 	GUICtrlSetData($displayMsg, '')
 
-	;> loop qua tất cả các element của array
 	For $i = 0 To UBound($array) - 1 Step 1
 		Local $j = 0
 
-		;> Không bao giờ 2 bộ số liên tiếp trùng nhau 1 con
 		Do
 			$array[$i] = Random(0,9,1)
 		Until $array[$i] <> GUICtrlRead($display[$i])
 
 		GUICtrlSetColor($display[$i], 0x000000)
 
-		;> hiệu ứng spinning
+    ; Spinning effect
 		While $j < $array[$i]
 			GUICtrlSetData($display[$i], $j)
 			$j += 1
@@ -76,9 +79,6 @@ Func ThrowdaDice()
 	For $i = 0 To UBound($array) - 1 Step 1
 		$sum += $array[$i]
 
-		;> ở đây xét kiểu đánh đề bao đầu đuôi:
-		;> nếu 2 con đầu trùng or 2 con cuối trùng
-		;> thì jackpot.
 		If $i <= UBound($array) - 2 And $array[$i] == $array[$i+1] Then
 			$bool = 1
 			GUICtrlSetColor($display[$i], 0xFF0000) ; 0xff0000 = đỏ
@@ -92,16 +92,15 @@ Func ThrowdaDice()
 		GUICtrlSetColor($displayMsg, 0xFF0000)
 	Else
 		GUICtrlSetData($displayMsg, 'Audio: ' & ToRealVolume($sum))
-		GUICtrlSetColor($displayMsg, 0x000000) ; 0x000000 = đen
+		GUICtrlSetColor($displayMsg, 0x000000)
 	EndIf
 
-;~ 	SoundSetWaveVolume(100) => bỏ comment sẽ rõ hơn.
+;~ 	SoundSetWaveVolume(100)
 	_SetMasterVolume(ToRealVolume($sum))
 	GUICtrlSetData($Audio_Progress, ToRealVolume($sum))
 	GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)
 EndFunc
 
-;> nếu không trúng jackpot thì % = tổng / max
 Func ToRealVolume($percent)
 	Local $max = 27 ; 9 * 3 = 27
 	Return Round(($percent*100)/$max)

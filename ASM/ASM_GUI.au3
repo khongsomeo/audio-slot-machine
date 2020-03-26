@@ -33,7 +33,7 @@ $ThrowdaDice = GUICtrlCreateButton('Spin', 64, 96, 83, 25)
 GUICtrlSetOnEvent(-1, 'ThrowdaDice')
 GUICtrlSetFont(-1, 10, 400, 0, 'Arial')
 GUICtrlSetCursor (-1, 0)
-$Audio_Progress = GUICtrlCreateProgress(0, 128, 206, 16)
+$Audio_Progress = GUICtrlCreateProgress(0, 128, 210, 18)
 GUISetState(@SW_SHOW)
 
 ; Keep the form showing

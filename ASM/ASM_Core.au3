@@ -81,7 +81,7 @@ Func ThrowdaDice()
   Next
 
   If isTheSame($generatedArray) Then
-    Local $soundVolume = percentTo999($sumSound)
+    Local $soundVolume = percentToWin($sumSound)
 
     setColourForNumbers($display, $COLOUR_RED)
     GUICtrlSetData($displayMsg, "Jackpot babe!")
@@ -97,6 +97,6 @@ Func ThrowdaDice()
 EndFunc
 
 ; Calculate percent spinned compare with 999
-Func percentTo999($sum)
-  Return Round($sum * 100 / 27)
+Func percentToWin($sum)
+  Return Round($sum * 100 / ($MAX_EDGE * 3))
 EndFunc

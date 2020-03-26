@@ -48,64 +48,64 @@ Global $Audio_Progress = GUICtrlCreateProgress(0, 128, 206, 16)
 GUISetState(@SW_SHOW)
 
 While 1
-	Sleep(100)
+  Sleep(100)
 WEnd
 
 Func ThrowdaDice()
-	GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
-	GUICtrlSetData($displayMsg, '')
+  GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
+  GUICtrlSetData($displayMsg, '')
 
-	For $i = 0 To UBound($array) - 1 Step 1
-		Local $j = 0
+  For $i = 0 To UBound($array) - 1 Step 1
+    Local $j = 0
 
-		Do
-			$array[$i] = Random(0,9,1)
-		Until $array[$i] <> GUICtrlRead($display[$i])
+    Do
+      $array[$i] = Random(0,9,1)
+    Until $array[$i] <> GUICtrlRead($display[$i])
 
-		GUICtrlSetColor($display[$i], 0x000000)
+    GUICtrlSetColor($display[$i], 0x000000)
 
     ; Spinning effect
-		While $j < $array[$i]
-			GUICtrlSetData($display[$i], $j)
-			$j += 1
-			Sleep(50)
-		WEnd
+    While $j < $array[$i]
+      GUICtrlSetData($display[$i], $j)
+      $j += 1
+      Sleep(50)
+    WEnd
 
-		GUICtrlSetData($display[$i], $array[$i])
-	Next
+    GUICtrlSetData($display[$i], $array[$i])
+  Next
 
-	Local $sum = 0, $bool = 0
+  Local $sum = 0, $bool = 0
 
-	For $i = 0 To UBound($array) - 1 Step 1
-		$sum += $array[$i]
+  For $i = 0 To UBound($array) - 1 Step 1
+    $sum += $array[$i]
 
-		If $i <= UBound($array) - 2 And $array[$i] == $array[$i+1] Then
-			$bool = 1
-			GUICtrlSetColor($display[$i], 0xFF0000) ; 0xff0000 = đỏ
-			GUICtrlSetColor($display[$i+1], 0xFF0000)
-		EndIf
-	Next
+    If $i <= UBound($array) - 2 And $array[$i] == $array[$i+1] Then
+      $bool = 1
+      GUICtrlSetColor($display[$i], 0xFF0000) ; 0xff0000 = đỏ
+      GUICtrlSetColor($display[$i+1], 0xFF0000)
+    EndIf
+  Next
 
-	If $bool Then
-		$sum = 27
-		GUICtrlSetData($displayMsg, 'Jackpot babe!')
-		GUICtrlSetColor($displayMsg, 0xFF0000)
-	Else
-		GUICtrlSetData($displayMsg, 'Audio: ' & ToRealVolume($sum))
-		GUICtrlSetColor($displayMsg, 0x000000)
-	EndIf
+  If $bool Then
+    $sum = 27
+    GUICtrlSetData($displayMsg, 'Jackpot babe!')
+    GUICtrlSetColor($displayMsg, 0xFF0000)
+  Else
+    GUICtrlSetData($displayMsg, 'Audio: ' & ToRealVolume($sum))
+    GUICtrlSetColor($displayMsg, 0x000000)
+  EndIf
 
-;~ 	SoundSetWaveVolume(100)
-	_SetMasterVolume(ToRealVolume($sum))
-	GUICtrlSetData($Audio_Progress, ToRealVolume($sum))
-	GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)
+  ;~ 	SoundSetWaveVolume(100)
+  _SetMasterVolume(ToRealVolume($sum))
+  GUICtrlSetData($Audio_Progress, ToRealVolume($sum))
+  GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)
 EndFunc
 
 Func ToRealVolume($percent)
-	Local $max = 27 ; 9 * 3 = 27
-	Return Round(($percent*100)/$max)
+  Local $max = 27 ; 9 * 3 = 27
+  Return Round(($percent*100)/$max)
 EndFunc
 
 Func MainFormClose()
-	Exit
+  Exit
 EndFunc

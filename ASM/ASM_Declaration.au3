@@ -31,7 +31,6 @@ Global Const $COLOUR_RED   = 0xFF0000
 Global Const $COLOUR_BLACK = 0x000000
 Global Const $MIN_EDGE     = 1
 Global Const $MAX_EDGE     = 9
-
 Global Const $ROLL_TIMES   = 2
 
 ; Global don't know when to use variables

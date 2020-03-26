@@ -22,6 +22,18 @@
 #include "GUIConstantsEx.au3"
 #include "StaticConstants.au3"
 
+;~ Debug Mode Constants
+Global Const $DEBUG = False
+Global Const $DEBUG_WIN_VALUE = 4
+
+;~ Constants
+Global Const $COLOUR_RED   = 0xFF0000
+Global Const $COLOUR_BLACK = 0x000000
+Global Const $MIN_EDGE     = 1
+Global Const $MAX_EDGE     = 9
+
+Global Const $ROLL_TIMES   = 2
+
 ; Global don't know when to use variables
 ; Add more here
 

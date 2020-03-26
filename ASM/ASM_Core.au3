@@ -16,19 +16,23 @@
 
 #include-once
 
+; Generate the spinning number, randomly
 Func generateNumber($displayArray)
   Local $arrayGenerated[3]
   For $i = 0 To UBound($arrayGenerated) - 1 Step 1
     Local $j = 0
 
-    Do
-      $arrayGenerated[$i] = Random(0, 9, 1)
-    Until $arrayGenerated[$i] <> $displayArray[$i]
+    ; Fixed result only exist in debug mode
+    If $DEBUG Then
+      $arrayGenerated[$i] = $DEBUG_WIN_VALUE
+    Else
+      $arrayGenerated[$i] = Random($MIN_EDGE, $MAX_EDGE, 1)
+    EndIf
   Next
   Return $arrayGenerated
 EndFunc
 
-; So the rule is, if 3 numbers are the same then volume = sum of 3 numbers / 27 (999 case)
+; Check if triad is the same
 Func isTheSame($arrayNumber)
   For $i = 0 To UBound($arrayNumber) - 2 Step 1
     if $arrayNumber[$i] <> $arrayNumber[$i + 1] Then Return False
@@ -36,9 +40,18 @@ Func isTheSame($arrayNumber)
   Return True
 EndFunc
 
+; Set colour for GUI number
+Func setColourForNumbers($displayHandle, $colour)
+  For $i = 0 To UBound($displayHandle) - 1 Step 1
+    GUICtrlSetColor($displayHandle[$i], $colour)
+  Next
+EndFunc
+
+; "Spin" button event
 Func ThrowdaDice()
+  setColourForNumbers($display, $COLOUR_BLACK)
   GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
-  GUICtrlSetData($displayMsg, '')
+  GUICtrlSetData($displayMsg, "Spinning")
 
   Local $generatedArray = generateNumber($display)
 
@@ -53,8 +66,13 @@ Func ThrowdaDice()
     Local $j = 0
 
     ; Spinning effect
-    while $j < $generatedArray[$i]
-      GUICtrlSetData($display[$i], $j)
+    while $j <= 9 * $ROLL_TIMES
+      If $j > 9 Then
+        GUICtrlSetData($display[$i], $j - 9)
+      Else
+        GUICtrlSetData($display[$i], $j)
+      EndIf
+
       $j += 1
       Sleep(50)
     WEnd
@@ -63,8 +81,22 @@ Func ThrowdaDice()
   Next
 
   If isTheSame($generatedArray) Then
-    MsgBox(0, 0, "Jackbox!")
+    Local $soundVolume = percentTo999($sumSound)
+
+    setColourForNumbers($display, $COLOUR_RED)
+    GUICtrlSetData($displayMsg, "Jackpot babe!")
+    GUICtrlSetData($Audio_Progress, $soundVolume)
+
+    ; Set volume for the computer
+    _SetMasterVolume($soundVolume)
+  Else
+    GUICtrlSetData($displayMsg, "No win, sorry!")
   EndIf
 
   GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)
+EndFunc
+
+; Calculate percent spinned compare with 999
+Func percentTo999($sum)
+  Return Round($sum * 100 / 27)
 EndFunc

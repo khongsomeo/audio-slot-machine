@@ -51,7 +51,7 @@ EndFunc
 Func ThrowdaDice()
   setColourForNumbers($display, $COLOUR_BLACK)
   GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
-  GUICtrlSetData($displayMsg, "Spinning")
+  GUICtrlSetData($displayMsg, 'Spinning')
 
   Local $generatedArray = generateNumber($display)
 
@@ -84,13 +84,13 @@ Func ThrowdaDice()
     Local $soundVolume = percentToWin($sumSound)
 
     setColourForNumbers($display, $COLOUR_RED)
-    GUICtrlSetData($displayMsg, "Jackpot babe!")
+    GUICtrlSetData($displayMsg, 'Jackpot babe!')
     GUICtrlSetData($Audio_Progress, $soundVolume)
 
     ; Set volume for the computer
     _SetMasterVolume($soundVolume)
   Else
-    GUICtrlSetData($displayMsg, "No win, sorry!")
+    GUICtrlSetData($displayMsg, 'No win, sorry!')
   EndIf
 
   GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)

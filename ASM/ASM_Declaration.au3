@@ -17,10 +17,10 @@
 #include-once
 
 ; Include GUI libraries
-#include "Array.au3"
-#include "ButtonConstants.au3"
-#include "GUIConstantsEx.au3"
-#include "StaticConstants.au3"
+#include 'Array.au3'
+#include 'ButtonConstants.au3'
+#include 'GUIConstantsEx.au3'
+#include 'StaticConstants.au3'
 
 ;~ Debug Mode Constants
 Global Const $DEBUG = False

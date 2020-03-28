@@ -18,9 +18,10 @@
 ; PRAISE KEK REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 ;-----------------------------------------------------------------------------------------------
 
-#include "UDF\_W7Sound.au3"
-#include "ASM\ASM_Declaration.au3"
-#include "ASM\ASM_Core.au3"
-#include "ASM\ASM_GUI.au3"
+#include 'UDF\_W7Sound.au3'
+#include 'ASM\ASM_Declaration.au3'
+#include 'ASM\ASM_Core.au3'
+#include 'ASM\ASM_GUI.au3'
 
-; This file, however, contains only comments and includes.
+; This file, however, contains only comments and library includes,
+; using for compilation only.

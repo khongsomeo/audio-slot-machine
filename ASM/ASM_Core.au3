@@ -51,7 +51,7 @@ EndFunc
 Func ThrowdaDice()
   setColourForNumbers($display, $COLOUR_BLACK)
   GUICtrlSetState($ThrowdaDice, $GUI_DISABLE)
-  GUICtrlSetData($displayMsg, "Spinning")
+  GUICtrlSetData($displayMsg, 'Spinning')
 
   Local $generatedArray = generateNumber($display)
 
@@ -81,22 +81,22 @@ Func ThrowdaDice()
   Next
 
   If isTheSame($generatedArray) Then
-    Local $soundVolume = percentTo999($sumSound)
+    Local $soundVolume = percentToWin($sumSound)
 
     setColourForNumbers($display, $COLOUR_RED)
-    GUICtrlSetData($displayMsg, "Jackpot babe!")
+    GUICtrlSetData($displayMsg, 'Jackpot babe!')
     GUICtrlSetData($Audio_Progress, $soundVolume)
 
     ; Set volume for the computer
     _SetMasterVolume($soundVolume)
   Else
-    GUICtrlSetData($displayMsg, "No win, sorry!")
+    GUICtrlSetData($displayMsg, 'No win, sorry!')
   EndIf
 
   GUICtrlSetState($ThrowdaDice, $GUI_ENABLE)
 EndFunc
 
 ; Calculate percent spinned compare with 999
-Func percentTo999($sum)
-  Return Round($sum * 100 / 27)
+Func percentToWin($sum)
+  Return Round($sum * 100 / ($MAX_EDGE * 3))
 EndFunc

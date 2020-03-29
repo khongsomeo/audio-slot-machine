@@ -23,4 +23,4 @@ git clone https://github.com/trhgquan/audio-slot-machine.git
 ```
 
 # License
-audio-slot-machine is licensed under [The MIT License](https://github.com/trhgquan/audio-slot-machine/blob/community/LICENSE).
+audio-slot-machine is licensed under [The MIT License](https://github.com/trhgquan/audio-slot-machine/blob/master/LICENSE).

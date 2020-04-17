@@ -20,7 +20,7 @@ Until now this works fine on Windows 10 and Window 7.
 
 Cloning this repository:
 ```
-git clone https://github.com/trhgquan/audio-slot-machine.git
+git clone https://github.com/khongsomeo/audio-slot-machine.git
 ```
 
 To run it: run `ASM.au3`.
@@ -29,4 +29,4 @@ To run it: run `ASM.au3`.
 Please read [The Contributing Guide here](https://github.com/khongsomeo/.github/blob/master/CONTRIBUTING.md).
 
 ## Licence
-audio-slot-machine is licenced under [The MIT License](https://github.com/trhgquan/audio-slot-machine/blob/master/LICENSE).
+audio-slot-machine is licenced under [The MIT License](https://github.com/khongsomeo/audio-slot-machine/blob/master/LICENSE).

@@ -7,7 +7,7 @@ This project started in 2018, inspired by [this](https://www.reddit.com/r/Progra
 
 At that time, the author wanted to build a mini-game, for people who want to change their computer's sound volume in a more cooler way.
 
-This repository is being re-built, thanks to @khongsomeo/DT101
+This repository is being re-built, thanks to __@khongsomeo/DT101__
 
 ## Demo
 https://www.facebook.com/CCCPpPpPpPp/videos/2061609124102959/

@@ -4,7 +4,7 @@ Audio Slot Machine, made with AutoIt3, <3 and keyboard.
 
 This repository is being re-built, thanks to @khongsomeo/DT101
 
-## [About](#About) | [Demo](#Demo) | [Install](#Install) | [Contributing](#Contributing) | [Licence](#Licence)
+[About](#About) | [Demo](#Demo) | [Install](#Install) | [Contributing](#Contributing) | [Licence](#Licence)
 
 ## About
 This project started in 2018, inspired by [this](https://www.reddit.com/r/ProgrammerHumor/comments/6fmq09/a_simple_graphical_volume_control/).

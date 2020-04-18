@@ -5,7 +5,7 @@
 ## About
 This project started in 2018, inspired by [this](https://www.reddit.com/r/ProgrammerHumor/comments/6fmq09/a_simple_graphical_volume_control/).
 
-At that time, the author wanted to build a mini-game, for people who want to change their computer's sound volume in a more cooler way.
+At that time, the author wanted to build a mini-game, for people who want to change their computer's sound volume in a cooler way.
 
 This repository is being re-built, thanks to __@khongsomeo/DT101__
 
@@ -23,7 +23,7 @@ Cloning this repository:
 git clone https://github.com/khongsomeo/audio-slot-machine.git
 ```
 
-To run it: run `ASM.au3`.
+Compile and execution: run `ASM.au3`.
 
 ## Contributing
 Please read [The Contributing Guide here](https://github.com/khongsomeo/.github/blob/master/CONTRIBUTING.md).
